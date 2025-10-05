@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos</title>
+  <link rel="icon" type="image/x-icon" href="img/logotipo.jpg">
+  <link rel="stylesheet" href="biblioteca/bootstrap/css/bootstrap.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* FONDO DE IMAGEN PARA TODA LA PANTALLA */
+    body {
+      background: url('img/fondo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    /* NAVBAR TRANSPARENTE */
+    nav {
+      background: transparent;
+    }
+
+    .navbar a {
+      color: white !important;
+    }
+
+    .icono-contacto {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .icono-contacto i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .formulario-contacto {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .formulario-contacto input,
+    .formulario-contacto textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid #f4a4b4;
+      margin-bottom: 15px;
+    }
+
+    .formulario-contacto input::placeholder,
+    .formulario-contacto textarea::placeholder {
+      color: #ddd;
+    }
+
+    .btn-enviar {
+      background-color: #f4a4b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+    }
+
+    .btn-enviar:hover {
+      background-color: #ffb6c1;
+    }
+
+    footer {
+      background-color: #0a081a;
+      text-align: center;
+      color: white;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="Acceso.html">
+        <img src="img/logotipo.jpg" width="40" height="40"> Raybanizados de autos
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenido">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="contenido">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="inicio - copia.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="reserva.html">Reserva</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Más
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="vehiculos.html">Vehículos</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Buscar">
+          <a class="btn btn-link" href="#">Facebook</a>
+          <a class="btn btn-link" href="#">Instagram</a>
+          <a class="btn btn-danger" href="index.html">Volver atrás</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECCIÓN CONTACTO -->
+  <section class="container py-5">
+
+    <!-- ÍCONOS -->
+    <div class="row text-center">
+      <div class="col-md-4 icono-contacto">
+        <i class="fas fa-phone"></i>
+        <p>Número telefónico</p>
+        <strong>+591 76340492</strong>
+        <p style="font-size: 14px;">Puedes llamarnos a cualquier hora</p>
+      </div>
+
+      <div class="col-md-4 icono-contacto">
+        <i class="fab fa-facebook"></i>
+        <p>Facebook</p>
+        <strong>Raybanizados de autos</strong>
+        <p style="font-size: 14px;">Síguenos en nuestra página oficial</p>
+      </div>
+
+      <div class="col-md-4 icono-contacto">
+        <i class="fab fa-facebook-messenger"></i>
+        <p>Messenger</p>
+        <strong>Raybanizados de autos</strong>
+        <p style="font-size: 14px;">Chatea con nosotros directamente</p>
+      </div>
+    </div>
+
+   <!-- FORMULARIO EN UNA COLUMNA FUNCIONAL CON MENSAJE DE ÉXITO -->
+<div class="formulario-contacto mt-4">
+  <form id="miFormulario">
+    <input type="email" name="email" class="form-control" placeholder="Email" required>
+    <input type="text" name="phone" class="form-control" placeholder="Teléfono" required>
+    <input type="text" name="name" class="form-control" placeholder="Nombre" required>
+    <textarea name="message" class="form-control" rows="4" placeholder="Mensaje" required></textarea>
+    
+    <div class="text-center mt-3">
+      <button type="submit" class="btn-enviar">Enviar mensaje</button>
+    </div>
+
+    <!-- MENSAJE DE ÉXITO OCULTO -->
+    <p id="mensajeExito" style="display:none; margin-top: 15px; color: #f4a4b4; text-align: center;">
+      ✅ ¡Mensaje enviado con éxito!
+    </p>
+  </form>
+</div>
+<script>
+  document.getElementById("miFormulario").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita el envío real
+
+    // Aquí normalmente se enviaría a un servidor o a Formspree
+    // Simulamos una espera con setTimeout
+    setTimeout(() => {
+      document.getElementById("mensajeExito").style.display = "block";
+      document.getElementById("miFormulario").reset(); // Limpia el formulario
+    }, 500); // 0.5 segundos
+  });
+</script>
+
+    <!-- MAPA -->
+    <div class="text-center mt-5">
+      <img src="img/mapa.jpg" class="img-fluid rounded" style="max-width: 30%; border: 2px solid #f4a4b4;">
+    </div>
+
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>Derechos de Autor &copy; Stefany Monserrat Forqueras</p>
+  </footer>
+
+  <script src="biblioteca/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="biblioteca/jquery/jquery.js"></script>
+  <script src="js/funcion.js"></script>
+</body>
+</html>

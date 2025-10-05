@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio</title>
+  <link rel="icon" type="image/x-icon" href="img/logo (2).jpg" />
+  <link rel="stylesheet" href="biblioteca/bootstrap/css/bootstrap.css"/>
+  <style>
+    form a.btn {
+      color: #ffffff !important;
+    }
+    form a.btn:hover {
+      color: #00ccff !important;
+    }
+    body {
+      background-color: #06162d;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #0a081a;
+    }
+    h1 {
+      text-align: center;
+      margin: 40px 0;
+      color: #fff;
+      font-size: 2.5rem;
+    }
+    .registro-box {
+      background: #fce4ec;
+      color: #333;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 30px auto;
+    }
+    .registro-box h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #880e4f;
+    }
+    .btn-primary {
+      background-color: #d81b60;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #ad1457;
+    }
+    footer {
+      background-color: #0a081a;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar-backgroud-color navbar navbar-dark navbar-expand-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="Acceso.html">
+        <img height="40" src="img/logo_(2).jpg" width="40" />
+        Raybanizados de autos
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenido">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="contenido">
+        <ul class="mx-auto navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">index</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item"><a class="nav-link" href="reserva.html">Reserva</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Más</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="vehiculos.html">Vehículos</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form>
+          <input id="buscador" type="search" placeholder="Buscar" />
+          <a class="btn" href="https://facebook.com/">Facebook</a>
+          <a class="btn" href="https://www.instagram.com/">Instagram</a>
+          <a class="btn btn-danger" href="index.html">Volver atrás</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container text-center">
+    <h1>panel</h1>
+  </div>
+
+  <div class="card">
+    <div class="bg-info card-header text-center">usuario</div>
+    <div class="card-body">
+      <h1 class="bi bi-person-circle text-center"></h1>
+    </div>
+    <div class="card-footer">
+      <div class="registro-box">
+        <h3>Registro</h3>
+        <form id="registroForm">
+          <div class="mb-3">
+            <label for="correo" class="form-label">Correo electrónico:</label>
+            <input type="email" class="form-control" id="correo" required>
+          </div>
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Número de teléfono:</label>
+            <input type="tel" class="form-control" id="telefono" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Género:</label><br />
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="genero" value="Masculino" required />
+              <label class="form-check-label">Masculino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="genero" value="Femenino" />
+              <label class="form-check-label">Femenino</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre completo:</label>
+            <input type="text" class="form-control" id="nombre" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Fecha de nacimiento:</label>
+            <div class="d-flex gap-2">
+              <select id="dia" class="form-select" required><option value="">Día</option></select>
+              <select id="mes" class="form-select" required><option value="">Mes</option></select>
+              <select id="anio" class="form-select" required><option value="">Año</option></select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="reserva" class="form-label">Reserva:</label>
+            <input type="text" class="form-control" id="reserva" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Enviar</button>
+          <div class="text-success mt-3" id="mensajeExito" style="display: none; font-weight: bold;"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <a href="blanco.html">Más información</a>
+  </div>
+
+  <footer class="footer-background-color p-5 text-center text-white">
+    <p>Derechos de Autor &copy;Stefany Monserrat Forqueras</p>
+  </footer>
+
+  <script src="biblioteca/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="biblioteca/jquery/jquery.js"></script>
+  <script src="js/funcion.js"></script>
+  <script>
+    // Mostrar mensaje de éxito y redirigir
+    document.getElementById("registroForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const mensaje = document.getElementById("mensajeExito");
+      mensaje.innerText = "Se ha enviado con éxito, muchas gracias";
+      mensaje.style.display = "block";
+
+      setTimeout(() => {
+        mensaje.style.display = "none";
+        window.location.href = "catalogo.html";
+      }, 3000);
+
+      this.reset();
+    });
+
+    // Dinámicamente llenar días, meses y años
+    const diaSelect = document.getElementById("dia");
+    const mesSelect = document.getElementById("mes");
+    const anioSelect = document.getElementById("anio");
+
+    const meses = [
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+
+    function actualizarDias() {
+      const mes = mesSelect.selectedIndex;
+      const anio = parseInt(anioSelect.value);
+      let diasEnMes = 31;
+
+      if (mes === 1) { // Febrero
+        diasEnMes = (anio % 4 === 0 && (anio % 100 !== 0 || anio % 400 === 0)) ? 29 : 28;
+      } else if ([3, 5, 8, 10].includes(mes)) {
+        diasEnMes = 30;
+      }
+
+      diaSelect.innerHTML = '<option value="">Día</option>';
+      for (let i = 1; i <= diasEnMes; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        diaSelect.add(option);
+      }
+    }
+
+    // Llenar meses
+    meses.forEach((mes, i) => {
+      const option = document.createElement("option");
+      option.value = mes;
+      option.text = mes;
+      mesSelect.add(option);
+    });
+
+    // Llenar años
+    const anioActual = new Date().getFullYear();
+    for (let a = anioActual; a >= 1930; a--) {
+      const option = document.createElement("option");
+      option.value = a;
+      option.text = a;
+      anioSelect.add(option);
+    }
+
+    // Actualizar días cada vez que cambien mes o año
+    mesSelect.addEventListener("change", actualizarDias);
+    anioSelect.addEventListener("change", actualizarDias);
+  </script>
+</body>
+</html>

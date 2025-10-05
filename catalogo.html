@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+    <link rel="icon" type="image/x-icon" href="img/logo_(2).jpg">
+    <link rel="stylesheet" href="biblioteca/bootstrap/css/bootstrap.css">
+    <style>
+    form a.btn {
+      color: #ffffff !important;
+    }
+    form a.btn:hover {
+      color: #00ccff !important;
+    }
+    body {
+      background-color: #06162d;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #0a081a;
+    }
+    h1 {
+      text-align: center;
+      margin: 40px 0;
+      color: #fff;
+      font-size: 2.5rem;
+    }
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .producto {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+    .producto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .producto:hover img {
+      transform: scale(1.05);
+    }
+    .etiqueta {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 45px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+      text-transform: capitalize;
+      letter-spacing: 1px;
+    }
+    .etiqueta::after {
+      content: "";
+      display: block;
+      margin: 8px auto 0;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    .producto:hover .etiqueta::after {
+      width: 40%;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    footer {
+      background-color: #0a081a;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar-backgroud-color navbar navbar-dark navbar-expand-sm sticky-top">
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1) Tomamos el input de búsqueda que ya tienes en el navbar
+    const buscador = document.querySelector('nav form input[type="search"]');
+    // 2) Todos los productos dentro del contenedor
+    const productos = document.querySelectorAll(".contenedor .producto");
+
+    // Quita tildes y normaliza espacios/mayúsculas
+    const normalizar = (s) =>
+      s
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") // quita acentos y la tilde de ñ
+        .replace(/\s+/g, " ")
+        .trim();
+
+    // Leemos y guardamos el texto de cada etiqueta normalizado (para no recalcular siempre)
+    const etiquetaDe = (prod) =>
+      prod.querySelector(".etiqueta")?.textContent || "";
+    const cache = new Map();
+    productos.forEach((p) => cache.set(p, normalizar(etiquetaDe(p))));
+
+    const aplicarFiltro = () => {
+      const q = normalizar(buscador.value || "");
+      if (!q) {
+        // Vacío: mostrar todo
+        productos.forEach((p) => (p.style.display = "block"));
+        return;
+      }
+
+      // Mostrar coincidencias parciales
+      let hayExacta = false;
+      productos.forEach((p) => {
+        const etiqueta = cache.get(p);
+        const coincideParcial = etiqueta.includes(q);
+        p.style.display = coincideParcial ? "block" : "none";
+        if (etiqueta === q) hayExacta = true;
+      });
+
+      // Si hay coincidencia exacta, ocultar los demás
+      if (hayExacta) {
+        productos.forEach((p) => {
+          const etiqueta = cache.get(p);
+          p.style.display = etiqueta === q ? "block" : "none";
+        });
+      }
+    };
+
+    // Filtrado en tiempo real
+    buscador.addEventListener("input", aplicarFiltro);
+  });
+</script>
+    <div class="container">
+      <a class="navbar-brand" href="Acceso.html">
+        <img height="40" src="img/logo_(2).jpg" width="40">
+        Raybanizados de autos
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenido" aria-controls="contenido" aria-expanded="false" aria-label="navigation-toggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="contenido">
+        <ul class="mx-auto navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item"><a class="nav-link" href="reserva.html">Reserva</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="masDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Más
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="masDropdown">
+              <li><a class="dropdown-item" href="vehiculos.html">Vehículos</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form>
+          <input id="buscador" type="search" placeholder="Buscar">
+          <a class="btn" href="https://facebook.com/">Facebook</a>
+          <a class="btn" href="https://www.instagram.com/">Instagram</a>
+          <a class="btn btn-danger" href="index.html">Volver atrás</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TÍTULO DEL CATÁLOGO -->
+  <h1>Catálogo de Productos</h1>
+
+  <!-- CATÁLOGO CON BOTÓN "VER MÁS" -->
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/autos_animados.jpg" alt="Producto 1">
+      <div class="etiqueta">AUTOS ANIMADOS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <!-- Repite esto para cada producto -->
+    <div class="producto">
+      <img src="img/diseno _de_llantas.jpg" alt="Producto 2">
+      <div class="etiqueta">DISEÑO DE FAROLES</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/diseno_de_llanta.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO DE LLANTAS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/calcomonias.jpg" alt="Producto 3">
+      <div class="etiqueta">CALCOMANÍAS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/camuflado.jpg" alt="Producto 3">
+      <div class="etiqueta">CAMUFLADO</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/diseno_realista.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO REALISTA</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/vidrios_negros.jpg" alt="Producto 3">
+      <div class="etiqueta">VIDRIOS NEGROS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/diseno_placas.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑOS DE PLACAS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/placas_restauradas.jpg" alt="Producto 3">
+      <div class="etiqueta">PLACAS RESTAURADAS</div>
+      <a class="boton-vermas" href="producto.html" target="_blank"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/fibra_de_carbón.jpg" alt="Producto 3">
+      <div class="etiqueta">FIBRA DE CARBON</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/FRANJAS.jpg" alt="Producto 3">
+      <div class="etiqueta">FRANJAS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/DISEÑO_DE_ LETRAS.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO DE LETRAS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/LLAMAS_DE_FUEGO.jpg" alt="Producto 3">
+      <div class="etiqueta">LLAMAS DE FUEGO</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/DISEÑO_DE_VIDRIOS.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO DE VIDRIOS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/deportivos.jpg" alt="Producto 3">
+      <div class="etiqueta">DEPORTIVOS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/VOLANTE_DECORATIVO.jpg" alt="Producto 3">
+      <div class="etiqueta">VOLANTE DECORATIVO</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/PUERTAS.jpg" alt="Producto 3">
+      <div class="etiqueta">PUERTAS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/ESCAPE.jpg" alt="Producto 3">
+      <div class="etiqueta">ESCAPE</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/LUCES DE DISEÑO.jpg" alt="Producto 3">
+      <div class="etiqueta">LUCES DE DISEÑO</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/RETROVISORES.jpg" alt="Producto 3">
+      <div class="etiqueta">RETROVISORES</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/DISEÑO_DE_CAJA_DE_CAMBIO.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO DE CAJA DE CAMBIO</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/Pedales.jpg" alt="Producto 3">
+      <div class="etiqueta">PEDALES</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/CAMBIO_DE_ COLOR.jpg" alt="Producto 3">
+      <div class="etiqueta">CAMBIO DE COLOR</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/CAPÓ_DISEÑOS.jpg" alt="Producto 3">
+      <div class="etiqueta">CAPÓ DISEÑOS</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/TAPETES.jpg" alt="Producto 3">
+      <div class="etiqueta">TAPETES</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+
+    <div class="producto">
+      <img src="img/LUCES AL COCHE.jpg" alt="Producto 3">
+      <div class="etiqueta">LUCES AL COCHE</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+    
+    <!-- Agrega hasta el producto 43 -->
+    <div class="producto">
+      <img src="img/VENTANA_DEL_TECHO.jpg" alt="Producto 43">
+      <div class="etiqueta">VENTANA DEL TECHO</div>
+      <a class="boton-vermas" href="producto.html"></a>
+    </div>
+  </div>
+ <br>
+    <style>
+        footer{
+            background-color: #0a081a;
+        }
+    </style>
+    <footer class="footer-background-color p-5 text-center text-white">
+        <p>Derechos de Autor &copy;Stefany Monserrat Forqueras</p>
+    </header>
+    <script src="biblioteca/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="biblioteca/jquery/jquery.js"></script>
+  <script src="js/funcion.js"></script>
+</body>
+</html>

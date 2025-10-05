@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usuario</title>
+    <link rel="icon" type="image/x-icon" href="img/logo (2).jpg">
+    <link rel="stylesheet" href="biblioteca/bootstrap/css/bootstrap.css">
+    <style>
+    form a.btn {
+      color: #ffffff !important;
+    }
+    form a.btn:hover {
+      color: #00ccff !important;
+    }
+    body {
+      background-color: #5f7ca4;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #534d87;
+    }
+    h1 {
+      text-align: center;
+      margin: 40px 0;
+      color: #fff;
+      font-size: 2.5rem;
+    }
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .producto {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+    .producto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .producto:hover img {
+      transform: scale(1.05);
+    }
+    .etiqueta {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 45px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+      text-transform: capitalize;
+      letter-spacing: 1px;
+    }
+    .etiqueta::after {
+      content: "";
+      display: block;
+      margin: 8px auto 0;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    .producto:hover .etiqueta::after {
+      width: 40%;
+    }
+    .boton-vermas {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #5d839c;
+      color: #606f92;
+      border: none;
+      padding: 5px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .boton-vermas:hover {
+      background-color: #00ccff;
+      color: #326e8a;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    footer {
+      background-color: #514a86;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar-backgroud-color navbar navbar-dark navbar-expand-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="Acceso.html">
+        <img height="40" src="img/logo (2).jpg" width="40">
+        Raybanizados de autos
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenido" aria-controls="contenido" aria-expanded="false" aria-label="navigation-toggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="contenido">
+        <ul class="mx-auto navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item"><a class="nav-link" href="reserva.html">Reserva</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="masDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Más
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="masDropdown">
+              <li><a class="dropdown-item" href="vehiculos.html">Vehículos</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form>
+          <input id="buscador" type="search" placeholder="Buscar">
+          <a class="btn" href="https://facebook.com/">Facebook</a>
+          <a class="btn" href="https://www.instagram.com/">Instagram</a>
+          <a class="btn btn-danger" href="index.html">Volver atrás</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+        <div class="container">
+            <h1>Bienvenido</h1>
+            <!--boton disparador modal-->
+<button class="bi bi-person-add btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal" > 
+    registrar usuario 
+</button>
+<!--modal-->
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modaltitulo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modaltitulo"> registrar uusuario </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" id="formulario" novalidate>
+                    <div>
+                        <label class="form-label" for="usuario">usuario</label>
+                        <input class="form-control" id="usuario" required type="text" placeholder="Usuario">
+                        <div class="valid-feedback">Usuario Valido</div>
+                        <div class="invalid-feedback">Usuario no valido</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="contrasena">contraseña</label>
+                        <input class="form-control" id="contrasena" required type="password" placeholder="Contraseña">
+                        <div class="valid-feedback">Contraseña Valida</div>
+                        <div class="invalid-feedback">Contraseña no valida</div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar </button>
+                <button type="button" class="btn btn-primary"> registrar </button>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr class="bg-dark text-white">
+            <th>usuario</th>
+            <th>contraseña</th>
+            <th>acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>mercado</th>
+            <td>forqueras</td>
+            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#modal1"><i class="bi bi-pencil"></i>actualizar</button>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                    data-bs-target="#modal2"><i class="bi bi-trash"></i>borrar</button>
+            </td>
+
+        </tr>
+        <tr>
+            <th>usuario</th>
+            <td>contraseña</td>
+            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#modal1"><i class="bi bi-pencil"></i>actualizar</button>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                    data-bs-target="#modal2"><i class="bi bi-trash"></i>borrar</button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr class="bg-dark text-white">
+            <th>usuario</th>
+            <th>contraseña</th>
+            <th>acción</th>
+        </tr>
+    </tfoot>
+</table>
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modaltitulo" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modaltitulo">editar usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" id="formulario" novalidate>
+
+                        <div>
+                            <label class="form-label" for="usuario">usuario</label>
+                            <input class="form-control" id="usuario" required type="text" />
+                            <div class="valid-feedback">
+                                usuario valido
+                            </div>
+                            <div class="invalid-feedback">
+                                usuario no valido
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label" for="contrasena">contraseña</label>
+                            <input class="form-control" id="contrasena" required type="password">
+                            <div class="valid-feedback">
+                                contraseña valida
+                            </div>
+                            <div class="invalid-feedback">
+                                contraseña no valida
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+                    <button type="button" class="btn btn-primary">registrar</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modaltitulo2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modaltitulo2">borrar usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+                <div class="modal-body">
+                    desea borrar usuario?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">si</button>
+                    <button type="button" class="btn btn-primary">no</button>
+                </div>
+            </div>
+        </div>
+        </div>
+         <style>
+        footer{
+            background-color: #0a081a;
+        }
+    </style>
+    <footer class="footer-background-color p-5 text-center text-white">
+        <p>Derechos de Autor &copy;Stefany Monserrat Forqueras</p>
+    </header>
+    <script src="biblioteca/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="biblioteca/jquery/jquery.js"></script>
+  <script src="js/funcion.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservación</title>
+  <link rel="stylesheet" href="biblioteca/bootstrap/css/bootstrap.css">
+  <style>
+    /* FONDO DE IMAGEN PARA TODA LA PANTALLA */
+    body {
+      background: url('img/fondo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    /* NAVBAR TRANSPARENTE */
+    nav {
+      background: transparent;
+    }
+
+    .navbar a {
+      color: white !important;
+    }
+
+    .icono-contacto {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .icono-contacto i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .formulario-contacto {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .formulario-contacto input,
+    .formulario-contacto textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid #f4a4b4;
+      margin-bottom: 15px;
+    }
+
+    .formulario-contacto input::placeholder,
+    .formulario-contacto textarea::placeholder {
+      color: #ddd;
+    }
+
+    .btn-enviar {
+      background-color: #f4a4b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+    }
+
+    .btn-enviar:hover {
+      background-color: #ffb6c1;
+    }
+
+    footer {
+      background-color: #0a081a;
+      text-align: center;
+      color: white;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="Acceso.html">
+        <img src="img/logotipo.jpg" width="40" height="40"> Raybanizados de autos
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenido">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="contenido">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Más
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="vehiculos.html">Vehículos</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Buscar">
+          <a class="btn btn-link" href="#">Facebook</a>
+          <a class="btn btn-link" href="#">Instagram</a>
+          <a class="btn btn-danger" href="index.html">Volver atrás</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url('img/fondo.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .overlay {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
+    }
+
+    .titulo {
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      max-width: 50%;
+    }
+
+    .formulario {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+    }
+
+    .formulario h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .form-control {
+      margin-bottom: 15px;
+    }
+
+    .btn-rosa {
+      background-color: #f8cdd3;
+      color: #000;
+      border: none;
+    }
+
+    .btn-rosa:hover {
+      background-color: #f4b3bd;
+    }
+
+    .mensaje {
+      display: none;
+      margin-top: 15px;
+      text-align: center;
+      color: #fff;
+      background-color: #f8cdd3;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="titulo">
+      Reserva
+    </div>
+    <form class="formulario" onsubmit="mostrarMensaje(event)">
+      <h2>Reservación</h2>
+      <input type="text" class="form-control" placeholder="Dónde" required>
+      <input type="text" class="form-control" placeholder="Nombre completo" required>
+      <input type="tel" class="form-control" placeholder="Número telefónico" required>
+      <input type="number" class="form-control" placeholder="Para cuántas personas" required>
+      <input type="text" class="form-control" placeholder="Tipo de vehículo" required>
+      <button type="submit" class="btn btn-rosa w-100">Enviar</button>
+      <div id="mensajeExito" class="mensaje">¡Enviado con éxito!</div>
+    </form>
+  </div>
+
+  <script>
+    function mostrarMensaje(event) {
+      event.preventDefault(); // evita que recargue la página
+      const mensaje = document.getElementById("mensajeExito");
+      mensaje.style.display = "block";
+      // opcional: ocultar el mensaje después de unos segundos
+      setTimeout(() => {
+        mensaje.style.display = "none";
+      }, 5000);
+    }
+  </script>
+  <footer>
+    <p>Derechos de Autor &copy; Stefany Monserrat Forqueras</p>
+  </footer>
+
+  <script src="biblioteca/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="biblioteca/jquery/jquery.js"></script>
+  <script src="js/funcion.js"></script>
+</body>
+</html>
+</body>
+</html>

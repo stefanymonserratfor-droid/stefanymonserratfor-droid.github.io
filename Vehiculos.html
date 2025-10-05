@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+  <title>Vehículos</title>    
+  <link rel="icon" type="image/x-icon" href="img/logo (2).jpg">    
+  <link rel="stylesheet" href="biblioteca/bootstrap/css/bootstrap.css">    
+  <style>    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('img/fondo.jpg'); /* 👉 Cambia esta ruta por tu imagen */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+
+    nav {
+      background: transparent !important;
+    }
+
+    .nav-link, .navbar-brand {
+      color: black !important;
+    }
+
+    .titulo-vehiculos {
+      text-align: center;
+      padding-top: 120px;
+      margin-bottom: 40px;
+    }
+
+    .titulo-vehiculos h1 {
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px black;
+    }
+
+    .galeria-cajas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .cuadro {
+      width: 400px;
+      height: 300px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cuadro.active {
+      display: flex;
+    }
+
+    .cuadro img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    .cuadro p {
+      color: white;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    footer {
+      background-color: #0a081a;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="Acceso.html">
+      <img height="40" src="img/logo (2).jpg" width="40">
+      Raybanizados de autos
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenido">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="contenido">
+      <ul class="mx-auto navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+        <li class="nav-item"><a class="nav-link" href="Reserva.html">Reserva</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Más</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="tiendas.html">Tiendas</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form>
+        <a class="btn" href="https://facebook.com/">Facebook</a>
+        <a class="btn" href="https://www.instagram.com/">Instagram</a>
+        <a class="btn btn-danger" href="index.html">Volver atrás</a>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- TÍTULO -->
+<div class="titulo-vehiculos">
+  <h1>Vehículos</h1>
+</div>
+
+<!-- GALERÍA -->
+<div class="galeria-cajas">
+  <div class="cuadro active">
+    <img src="img/AUTO.jpg" alt="AUTO">
+    <p>AUTO</p>
+  </div>
+  <div class="cuadro">
+    <img src="img/DEPORTIVO.jpg" alt="DEPORTIVO">
+    <p>DEPORTIVO</p>
+  </div>
+  <div class="cuadro">
+    <img src="img/CAMIONETA.jpg" alt="CAMIONETA">
+    <p>CAMIONETA</p>
+  </div>
+  <div class="cuadro">
+    <img src="img/TRACTOR.jpg" alt="TRACTOR">
+    <p>TRACTOR</p>
+  </div>
+  <div class="cuadro">
+    <img src="img/MOTO.jpg" alt="MOTO">
+    <p>MOTO</p>
+  </div>
+</div>
+<!-- FOOTER -->
+<footer class="footer-background-color p-5 text-center text-white">
+  <p>Derechos de Autor &copy;Stefany Monserrat Forqueras</p>
+</footer>
+
+<!-- SCRIPT ROTACIÓN -->
+<script src="biblioteca/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+  const cuadros = document.querySelectorAll('.cuadro');
+  let actual = 0;
+
+  setInterval(() => {
+    cuadros[actual].classList.remove('active');
+    actual = (actual + 1) % cuadros.length;
+    cuadros[actual].classList.add('active');
+  }, 3000);
+</script>
+
+</body>
+</html>
