@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nosotros</title>
   <link rel="icon" type="image/x-icon" href="img/0.1.png" />
-  <link rel="stylesheet" href="biblioteca/bootstrap/css/bootstrap.css"/>
+  <!-- Reemplaza tu archivo local por la CDN de Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     body {
@@ -98,6 +99,25 @@
       z-index: 10;
     }
 
+    /* Fondo para el menú desplegable en móvil */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        background-color: #343a40; /* Mismo color que navbar-dark */
+        padding: 15px;
+        border-radius: 0 0 8px 8px;
+        margin-top: 10px;
+      }
+      
+      .navbar-nav {
+        text-align: center;
+      }
+      
+      .dropdown-menu {
+        background-color: #495057; /* Color ligeramente más claro para el submenú */
+        text-align: center;
+      }
+    }
+
     form a.btn {
       color: #ffffff !important;
     }
@@ -130,7 +150,7 @@
 <body>
 
   <!-- NAVBAR TRANSPARENTE -->
-  <nav class="navbar navbar-dark navbar-expand-sm sticky-top">
+  <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand" href="Acceso.html">
         <img height="40" src="img/logotipo.jpg" width="40">
@@ -149,14 +169,14 @@
               Más
             </a>
             <ul class="dropdown-menu" aria-labelledby="masDropdown">
-              <li><a class="dropdown-item" href="vehiculos.html">Vehículos</a></li>>
+              <li><a class="dropdown-item" href="vehiculos.html">Vehículos</a></li>
             </ul>
           </li>
         </ul>
-        <form>
-          <input id="buscador" type="search" placeholder="Buscar">
-          <a class="btn" href="https://facebook.com/">Facebook</a>
-          <a class="btn" href="https://www.instagram.com/">Instagram</a>
+        <form class="d-flex">
+          <input id="buscador" type="search" placeholder="Buscar" class="me-2">
+          <a class="btn me-2" href="https://facebook.com/">Facebook</a>
+          <a class="btn me-2" href="https://www.instagram.com/">Instagram</a>
           <a class="btn btn-danger" href="index.html">Volver atrás</a>
         </form>
       </div>
@@ -197,8 +217,9 @@
     <p>Derechos de Autor &copy; Stefany Monserrat Forqueras</p>
   </footer>
 
-  <!-- SCRIPTS -->
-  <script src="biblioteca/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap 5 JS desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery (solo si realmente lo necesitas) -->
   <script src="biblioteca/jquery/jquery.js"></script>
   <script src="js/funcion.js"></script>
 

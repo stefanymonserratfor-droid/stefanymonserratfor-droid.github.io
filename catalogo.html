@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
     <link rel="icon" type="image/x-icon" href="img/logo_(2).jpg">
-    <link rel="stylesheet" href="biblioteca/bootstrap/css/bootstrap.css">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
     form a.btn {
       color: #ffffff !important;
@@ -20,9 +21,15 @@
       margin: 0;
       padding: 0;
     }
-    nav {
-      background-color: #0a081a;
+    
+    /* NAVBAR TRANSPARENTE COMO EN NOSOTROS */
+    nav.navbar {
+      background-color: transparent !important;
+      position: absolute;
+      width: 100%;
+      z-index: 10;
     }
+
     h1 {
       text-align: center;
       margin: 40px 0;
@@ -80,16 +87,287 @@
       width: 40%;
     }
     
+    .boton-vermas {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #5d839c;
+      color: #585183;
+      border: none;
+      padding: 5px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .boton-vermas:hover {
+      background-color: #00ccff;
+      color: #326e8a;
+    }
+    
     .dropdown:hover .dropdown-menu {
       display: block;
     }
+    
+    /* Fondo para el menú desplegable en móvil COMO EN NOSOTROS */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        background-color: #343a40; /* Mismo color que navbar-dark */
+        padding: 15px;
+        border-radius: 0 0 8px 8px;
+        margin-top: 10px;
+      }
+      
+      .navbar-nav {
+        text-align: center;
+      }
+      
+      .dropdown-menu {
+        background-color: #495057; /* Color ligeramente más claro para el submenú */
+        text-align: center;
+      }
+      
+      form {
+        text-align: center;
+        margin-top: 15px;
+      }
+      
+      form input[type="search"] {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      
+      form .btn {
+        margin: 5px;
+      }
+    }
+
     footer {
       background-color: #0a081a;
+      padding: 40px;
+      color: white;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar-backgroud-color navbar navbar-dark navbar-expand-sm sticky-top">
+  <!-- NAVBAR TRANSPARENTE COMO EN NOSOTROS -->
+  <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="Acceso.html">
+        <img height="40" src="img/logo_(2).jpg" width="40">
+        Raybanizados de autos
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenido" aria-controls="contenido" aria-expanded="false" aria-label="navigation-toggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="contenido">
+        <ul class="mx-auto navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item"><a class="nav-link" href="Reserva.html">Reserva</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="masDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Más
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="masDropdown">
+              <li><a class="dropdown-item" href="Vehiculos.html">Vehículos</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input id="buscador" type="search" placeholder="Buscar" class="me-2">
+          <a class="btn me-2" href="https://facebook.com/">Facebook</a>
+          <a class="btn me-2" href="https://www.instagram.com/">Instagram</a>
+          <a class="btn btn-danger" href="index.html">Volver atrás</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TÍTULO DEL CATÁLOGO -->
+  <h1 style="margin-top: 100px;">Catálogo de Productos</h1>
+
+  <!-- CATÁLOGO CON BOTÓN "VER MÁS" -->
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/autos_animados.jpg" alt="Producto 1">
+      <div class="etiqueta">AUTOS ANIMADOS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <!-- Repite esto para cada producto -->
+    <div class="producto">
+      <img src="img/diseno _de_llantas.jpg" alt="Producto 2">
+      <div class="etiqueta">DISEÑO DE FAROLES</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/diseno_de_llanta.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO DE LLANTAS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/calcomonias.jpg" alt="Producto 3">
+      <div class="etiqueta">CALCOMANÍAS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/camuflado.jpg" alt="Producto 3">
+      <div class="etiqueta">CAMUFLADO</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/diseno_realista.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO REALISTA</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/vidrios_negros.jpg" alt="Producto 3">
+      <div class="etiqueta">VIDRIOS NEGROS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/diseno_placas.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑOS DE PLACAS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/placas_restauradas.jpg" alt="Producto 3">
+      <div class="etiqueta">PLACAS RESTAURADAS</div>
+      <a class="boton-vermas" href="producto.html" target="_blank">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/fibra_de_carbón.jpg" alt="Producto 3">
+      <div class="etiqueta">FIBRA DE CARBON</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/FRANJAS.jpg" alt="Producto 3">
+      <div class="etiqueta">FRANJAS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/DISEÑO_DE_ LETRAS.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO DE LETRAS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/LLAMAS_DE_FUEGO.jpg" alt="Producto 3">
+      <div class="etiqueta">LLAMAS DE FUEGO</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/DISEÑO_DE_VIDRIOS.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO DE VIDRIOS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/deportivos.jpg" alt="Producto 3">
+      <div class="etiqueta">DEPORTIVOS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/VOLANTE_DECORATIVO.jpg" alt="Producto 3">
+      <div class="etiqueta">VOLANTE DECORATIVO</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/PUERTAS.jpg" alt="Producto 3">
+      <div class="etiqueta">PUERTAS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/ESCAPE.jpg" alt="Producto 3">
+      <div class="etiqueta">ESCAPE</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/LUCES DE DISEÑO.jpg" alt="Producto 3">
+      <div class="etiqueta">LUCES DE DISEÑO</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/RETROVISORES.jpg" alt="Producto 3">
+      <div class="etiqueta">RETROVISORES</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/DISEÑO_DE_CAJA_DE_CAMBIO.jpg" alt="Producto 3">
+      <div class="etiqueta">DISEÑO DE CAJA DE CAMBIO</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/Pedales.jpg" alt="Producto 3">
+      <div class="etiqueta">PEDALES</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/CAMBIO_DE_ COLOR.jpg" alt="Producto 3">
+      <div class="etiqueta">CAMBIO DE COLOR</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/CAPÓ_DISEÑOS.jpg" alt="Producto 3">
+      <div class="etiqueta">CAPÓ DISEÑOS</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/TAPETES.jpg" alt="Producto 3">
+      <div class="etiqueta">TAPETES</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+
+    <div class="producto">
+      <img src="img/LUCES AL COCHE.jpg" alt="Producto 3">
+      <div class="etiqueta">LUCES AL COCHE</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+    
+    <!-- Agrega hasta el producto 43 -->
+    <div class="producto">
+      <img src="img/VENTANA_DEL_TECHO.jpg" alt="Producto 43">
+      <div class="etiqueta">VENTANA DEL TECHO</div>
+      <a class="boton-vermas" href="producto.html">Ver más</a>
+    </div>
+  </div>
+ <br>
+
+    <footer class="footer-background-color p-5 text-center text-white">
+        <p>Derechos de Autor &copy;Stefany Monserrat Forqueras</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (solo si realmente lo necesitas) -->
+    <script src="biblioteca/jquery/jquery.js"></script>
+    <script src="js/funcion.js"></script>
+    
     <script>
   document.addEventListener("DOMContentLoaded", () => {
     // 1) Tomamos el input de búsqueda que ya tienes en el navbar
@@ -142,219 +420,5 @@
     buscador.addEventListener("input", aplicarFiltro);
   });
 </script>
-    <div class="container">
-      <a class="navbar-brand" href="Acceso.html">
-        <img height="40" src="img/logo_(2).jpg" width="40">
-        Raybanizados de autos
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contenido" aria-controls="contenido" aria-expanded="false" aria-label="navigation-toggle">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="contenido">
-        <ul class="mx-auto navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
-          <li class="nav-item"><a class="nav-link" href="Reserva.html">Reserva</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="masDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Más
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="masDropdown">
-              <li><a class="dropdown-item" href="Vehiculos.html">Vehículos</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form>
-          <input id="buscador" type="search" placeholder="Buscar">
-          <a class="btn" href="https://facebook.com/">Facebook</a>
-          <a class="btn" href="https://www.instagram.com/">Instagram</a>
-          <a class="btn btn-danger" href="index.html">Volver atrás</a>
-        </form>
-      </div>
-    </div>
-  </nav>
-
-  <!-- TÍTULO DEL CATÁLOGO -->
-  <h1>Catálogo de Productos</h1>
-
-  <!-- CATÁLOGO CON BOTÓN "VER MÁS" -->
-  <div class="contenedor">
-    <div class="producto">
-      <img src="img/autos_animados.jpg" alt="Producto 1">
-      <div class="etiqueta">AUTOS ANIMADOS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <!-- Repite esto para cada producto -->
-    <div class="producto">
-      <img src="img/diseno _de_llantas.jpg" alt="Producto 2">
-      <div class="etiqueta">DISEÑO DE FAROLES</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/diseno_de_llanta.jpg" alt="Producto 3">
-      <div class="etiqueta">DISEÑO DE LLANTAS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/calcomonias.jpg" alt="Producto 3">
-      <div class="etiqueta">CALCOMANÍAS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/camuflado.jpg" alt="Producto 3">
-      <div class="etiqueta">CAMUFLADO</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/diseno_realista.jpg" alt="Producto 3">
-      <div class="etiqueta">DISEÑO REALISTA</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/vidrios_negros.jpg" alt="Producto 3">
-      <div class="etiqueta">VIDRIOS NEGROS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/diseno_placas.jpg" alt="Producto 3">
-      <div class="etiqueta">DISEÑOS DE PLACAS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/placas_restauradas.jpg" alt="Producto 3">
-      <div class="etiqueta">PLACAS RESTAURADAS</div>
-      <a class="boton-vermas" href="producto.html" target="_blank"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/fibra_de_carbón.jpg" alt="Producto 3">
-      <div class="etiqueta">FIBRA DE CARBON</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/FRANJAS.jpg" alt="Producto 3">
-      <div class="etiqueta">FRANJAS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/DISEÑO_DE_ LETRAS.jpg" alt="Producto 3">
-      <div class="etiqueta">DISEÑO DE LETRAS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/LLAMAS_DE_FUEGO.jpg" alt="Producto 3">
-      <div class="etiqueta">LLAMAS DE FUEGO</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/DISEÑO_DE_VIDRIOS.jpg" alt="Producto 3">
-      <div class="etiqueta">DISEÑO DE VIDRIOS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/deportivos.jpg" alt="Producto 3">
-      <div class="etiqueta">DEPORTIVOS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/VOLANTE_DECORATIVO.jpg" alt="Producto 3">
-      <div class="etiqueta">VOLANTE DECORATIVO</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/PUERTAS.jpg" alt="Producto 3">
-      <div class="etiqueta">PUERTAS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/ESCAPE.jpg" alt="Producto 3">
-      <div class="etiqueta">ESCAPE</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/LUCES DE DISEÑO.jpg" alt="Producto 3">
-      <div class="etiqueta">LUCES DE DISEÑO</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/RETROVISORES.jpg" alt="Producto 3">
-      <div class="etiqueta">RETROVISORES</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/DISEÑO_DE_CAJA_DE_CAMBIO.jpg" alt="Producto 3">
-      <div class="etiqueta">DISEÑO DE CAJA DE CAMBIO</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/Pedales.jpg" alt="Producto 3">
-      <div class="etiqueta">PEDALES</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/CAMBIO_DE_ COLOR.jpg" alt="Producto 3">
-      <div class="etiqueta">CAMBIO DE COLOR</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/CAPÓ_DISEÑOS.jpg" alt="Producto 3">
-      <div class="etiqueta">CAPÓ DISEÑOS</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/TAPETES.jpg" alt="Producto 3">
-      <div class="etiqueta">TAPETES</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-
-    <div class="producto">
-      <img src="img/LUCES AL COCHE.jpg" alt="Producto 3">
-      <div class="etiqueta">LUCES AL COCHE</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-    
-    <!-- Agrega hasta el producto 43 -->
-    <div class="producto">
-      <img src="img/VENTANA_DEL_TECHO.jpg" alt="Producto 43">
-      <div class="etiqueta">VENTANA DEL TECHO</div>
-      <a class="boton-vermas" href="producto.html"></a>
-    </div>
-  </div>
- <br>
-    <style>
-        footer{
-            background-color: #0a081a;
-        }
-    </style>
-    <footer class="footer-background-color p-5 text-center text-white">
-        <p>Derechos de Autor &copy;Stefany Monserrat Forqueras</p>
-    </header>
-    <script src="biblioteca/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="biblioteca/jquery/jquery.js"></script>
-  <script src="js/funcion.js"></script>
 </body>
 </html>
